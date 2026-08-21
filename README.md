@@ -16,7 +16,8 @@ Proyecto compuesto por un **Shell** y dos microfrontends independientes:
 Instala las dependencias de cada aplicación desde la raíz del proyecto:
 
 ```bash
-cd pokemon-detail
+
+cd apps/pokemon-detail
 pnpm install
 
 cd ../pokemon-history
