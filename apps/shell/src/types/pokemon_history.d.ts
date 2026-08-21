@@ -1,12 +1,17 @@
-declare module "pokemon_history_app/Button" {
-  const Button: React.FC<{
-    text: string;
-    onClick?: () => void;
-  }>;
-  export default Button;
-}
+declare module "pokemon_history_app/PokemonHistory" {
+  import type { ComponentType } from "react";
 
-declare module "pokemon_history_app/Header" {
-  const Header: React.FC;
-  export default Header;
+  interface VisitPokemon {
+    name: string;
+    image: string;
+    visits: number;
+  }
+
+  interface VisitsPokemonsState {
+    history: VisitPokemon[];
+  }
+
+  const PokemonHistory: ComponentType<VisitsPokemonsState>;
+
+  export default PokemonHistory;
 }

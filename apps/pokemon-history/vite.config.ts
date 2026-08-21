@@ -1,16 +1,17 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import federation from "@originjs/vite-plugin-federation";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   plugins: [
     react(),
+    tailwindcss(),
     (federation as any)({
       name: "pokemon_history_app",
       filename: "pokemonHistoryEntry.js",
       exposes: {
-        "./Button": "./src/components/Button",
-        "./Header": "./src/components/Header",
+         "./PokemonHistory": "./src/features/history/components/PokemonHistory.tsx"
       },
       shared: ["react", "react-dom"],
     }),

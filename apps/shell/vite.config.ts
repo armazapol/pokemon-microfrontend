@@ -1,8 +1,8 @@
-//host - vote.config.js
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import federation from "@originjs/vite-plugin-federation";
 import tailwindcss from '@tailwindcss/vite'
+import path from "path"
 
 
 export default defineConfig({
@@ -15,9 +15,14 @@ export default defineConfig({
         pokemon_history_app: "http://localhost:3001/assets/pokemonHistoryEntry.js",
         pokemon_detail_app: "http://localhost:3002/assets/pokemonDetailEntry.js",
       },
-      shared: ["react", "react-dom"],
+      shared: ["react", "react-dom", "@tanstack/react-query"],
     }),
   ],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
   build: {
     modulePreload: false,
     target: "esnext",
